@@ -1,32 +1,62 @@
-/*resets the box size of every element*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/*gives the body element a parent height to compare against*/
-html {
-    height: 100%;
-}
-
+/*The type of character */
 body {
-    min-height: 100%;
-    line-height: 1;
-    font-family: sans-serif;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
-
-h1, h2, h3, h4, h5, h6 {
-    font-size: 100%;
+/*Distance of padding box and background color*/
+.header {
+  background-color: #f2f2f2;
+  padding: 10px;
 }
-
-/* matches the font of special elements to the rest of the page*/
-input, select, option, optgroup, textarea, button, pre, code {
-    font-size: 100%;
-    font-family: inherit;
+/* where the score and time is*/
+.score-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-/* removes default bullet points from lists */
-ol, ul{
-    list-style: none;
+/* what the high score button looks like green box and white text font size and what cursor look like when hover over*/
+.score-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* on the style of the whole sect5ion of the start quiz*/
+.start-quiz {
+  text-align: center;
+  margin-top: 50px;
+}
+/* size of of the text and margin distice from the bottom*/
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+/* size of the text and margin from the bottom*/
+p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+/* style of the start quiz button blue box and white text font size and what cursor look like when hover over*/
+#start-quiz-btn {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* style of footer*/
+footer {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: center;
 }
