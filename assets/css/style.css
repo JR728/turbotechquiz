@@ -54,6 +54,16 @@ p {
   font-size: 16px;
   cursor: pointer;
 }
+/* so question section dont show on main page yet*/
+.question-section {
+    display: none
+}
+/* Add styling for the incorrect message */
+.incorrect-msg {
+    color: red;
+    display: none;
+  }
+  
 /* style of footer*/
 footer {
   background-color: #f2f2f2;
