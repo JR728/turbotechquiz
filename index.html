@@ -12,7 +12,7 @@
     <header class="header">
         <div class="score-time">
             <button id="high-score" class="score-btn">View high scores</button>
-            <h1>Time: </h1>
+            <h1>Time: <span id="timer">0</span></h1>
     </header>
     <div class="start-quiz">
         <h2>Coding Turbo Quiz</h2>
@@ -28,7 +28,11 @@
           <li><button>Choice 4</button></li>
         </ul>
         <p class="incorrect-msg">Incorrect answer. Try again!</p>
-      </div>
+    </div>
+    <div id="scoreboard-section" class="scoreboard-section">
+        <h2>High Scores</h2>
+        <ul id="scoreboard-list"></ul>
+    </div>
     <script src="./assets/script.js"></script>
 </body>
 <footer>

@@ -58,11 +58,15 @@ p {
 .question-section {
     display: none
 }
+/*so highscore section dont show on main page yet*/
+.scoreboard-section {
+    display: none;
+}
 /* Add styling for the incorrect message */
 .incorrect-msg {
     color: red;
     display: none;
-  }
+}
   
 /* style of footer*/
 footer {
