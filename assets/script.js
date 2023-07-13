@@ -38,6 +38,7 @@ var startQuizBtn = document.getElementById("start-quiz-btn");
 var timerElement = document.querySelector(".score-time h1");
 var startQuizSection = document.querySelector(".start-quiz");
 var questionSection = document.querySelector(".question-section");
+var scoreboardSection = document.getElementById("scoreboard-section");
 var questionTitle = document.querySelector(".question-title");
 var choicesList = document.querySelector(".choices-list");
 
@@ -45,6 +46,12 @@ var choicesList = document.querySelector(".choices-list");
 var questionIndex = 0;
 var timeLeft = 60;
 var timerInterval;
+var highScores = [];
+
+// Check if high scores exist in localStorage
+if (localStorage.getItem("highScores")) {
+    highScores = JSON.parse(localStorage.getItem("highScores"));
+}  
 
 // Event listener for the start quiz button
 startQuizBtn.addEventListener("click", startQuiz);
@@ -52,6 +59,7 @@ startQuizBtn.addEventListener("click", startQuiz);
 // Function to start the quiz
 function startQuiz() {
   startQuizSection.style.display = "none";
+  scoreboardSection.style.display = "none";
   questionSection.style.display = "block";
 
   // Start the timer
@@ -122,10 +130,55 @@ function displayQuestion() {
   }
 });
   
-  // Function to end the quiz
-  function endQuiz() {
+// Function to end the quiz
+function endQuiz() {
     clearInterval(timerInterval);
     questionSection.style.display = "none";
-    // Add your logic to save initials and score here
-  }
-  
+
+    // Prompt for initials
+    var initials = prompt("Enter your initials:");
+
+    // Create a new high score object
+    var newScore = {
+        initials: initials,
+        time: timeLeft
+    };
+
+    // Add the new score to the high scores array
+    highScores.push(newScore);
+
+    // Save high scores to localStorage
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+
+    // Show the scoreboard
+    showHighScores();
+}
+//viewing highscore
+var highScoreButton = document.getElementById("high-score");
+highScoreButton.addEventListener("click", showHighScores);
+
+function showHighScores() {
+    // Hide other sections and show the scoreboard section
+    startQuizSection.style.display = "none";
+    questionSection.style.display = "none";
+    scoreboardSection.style.display = "block";
+
+    // Clear the existing scoreboard
+    var scoreboardList = document.getElementById("scoreboard-list");
+    scoreboardList.innerHTML = "";
+
+    // Sort the high scores array in descending order
+    highScores.sort(function (a, b) {
+        return b.time - a.time;
+    });
+
+    // Display each high score in the scoreboard list
+    highScores.forEach(function (score) {
+        var scoreItem = document.createElement("li");
+        scoreItem.textContent = score.initials + " - " + score.time;
+        scoreboardList.appendChild(scoreItem);
+    });
+
+    // Update the localStorage with the latest high scores
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+}
